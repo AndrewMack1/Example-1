@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew - Developer Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+<body>
+
+<div id="robot-popup" class="robot-popup" style="right:24px; left:auto; top:24px; min-width:180px; max-width:260px; font-size:0.93rem; padding:10px 18px 10px 12px;">
+  <div class="robot-emoji">🤖<span class="robot-hand">👋</span></div>
+  <div class="robot-message">
+    <b>Hello!</b> Looking for 24/7 super cheap servers to host your own projects?<br>
+    <span style="color:#ff9900;font-weight:600;">Try <span style="text-decoration:underline;cursor:pointer;" onclick="window.open('https://anodes.andrewdev.xyz','_blank')">anodes</span>.</span>
+  </div>
+</div>
+<script>
+function showSecretSection() {
+  const secret = document.getElementById('secret-section');
+  if (secret) {
+    secret.style.display = 'block';
+    setTimeout(() => { secret.style.opacity = 1; }, 50);
+  }
+}
+// easter egg shit
+window.addEventListener('show-secret', showSecretSection);
+</script>
+  
+  <div class="noise"></div>
+  
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <svg class="filters">
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="8" result="blur" />
+        <feFlood flood-color="var(--primary-color)" flood-opacity="0.5" result="color" />
+        <feComposite in="color" in2="blur" operator="in" result="glow" />
+        <feComposite in="SourceGraphic" in2="glow" operator="over" />
+      </filter>
+      <filter id="turbulence">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo-wrapper">
+          <div class="logo-glitch" data-text="A">/A</div>
+          <div class="logo-title">ndrew</div>
+        </div>
+        
+        <div class="nav-toggle">
+          <div class="nav-toggle-bar"></div>
+        </div>
+        
+        <div class="nav-overlay">
+          <div class="nav-content">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#home" class="nav-link" data-text="Home">Home</a></li>
+              <li class="nav-item"><a href="#about" class="nav-link" data-text="About">About</a></li>
+              <li class="nav-item"><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+              <li class="nav-item"><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-social">
+              <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  
+  <section id="home" class="hero">
+    <div id="vanta-bg"></div>
+    <div class="grid-background"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text-container">
+        <h1 class="hero-title glitch-text" data-text="Andrew">Andrew</h1>
+        <div class="hero-subtitle">
+          <div class="subtitle-line">
+            <span class="typing-text">Developer &</span>
+          </div>
+          <div class="subtitle-line">
+            <span class="accent-text">Creator</span>
+          </div>
+        </div>
+        <p class="hero-description">Building memorable digital experiences with modern technologies and creative solutions.</p>
+        
+        <div class="hero-cta">
+          <a href="#projects" class="cyber-btn">
+            <span>My Projects</span>
+            <div class="cyber-btn__glitch"></div>
+          </a>
+          <a href="#contact" class="btn-secondary scanner">Get in Touch</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="code-container">
+          <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-title">developer.js</span>
+          </div>
+          <div class="code-content">
+            <pre><code>
+<span class="code-keyword">class</span> <span class="code-class">Developer</span> {
+  <span class="code-function">constructor</span>() {
+    <span class="code-this">this</span>.name = <span class="code-string">"Andrew"</span>;
+    <span class="code-this">this</span>.skills = [
+      <span class="code-string">"JavaScript"</span>,
+      <span class="code-string">"HTML/CSS"</span>,
+      <span class="code-string">"Node.js"</span>
+    ];
+  }
+
+  <span class="code-function">createAwesomeStuff</span>() {
+    <span class="code-keyword">return</span> <span class="code-string">"Amazing digital experiences"</span>;
+  }
+}
+            </code></pre>
+          </div>
+        </div>
+        
+        <div class="tech-pill html">HTML</div>
+        <div class="tech-pill css">CSS</div>
+        <div class="tech-pill js">JavaScript</div>
+        <div class="tech-pill nodejs">Node.js</div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="arrows">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <div class="terminal">
+            <div class="terminal-header">
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-title">andrew@dev ~ $</span>
+            </div>
+            <div class="terminal-body">
+              <p class="typewriter-text">Hi, I'm Andrew, a passionate developer focused on crafting clean, elegant, and efficient code.</p>
+              <p class="typewriter-text">I specialize in building responsive websites and web applications that provide exceptional user experiences.</p>
+              <p class="typewriter-text">With attention to detail and a commitment to staying current with emerging technologies, I deliver high-quality solutions that meet client needs.</p>
+            </div>
+          </div>
+          
+          <div class="skills">
+            <div class="skill-category">
+              <h3 class="skill-title">Frontend</h3>
+              <div class="skill-item">
+                <span class="skill-name">HTML/CSS</span>
+                <div class="skill-bar">
+                  <div class="skill-level" data-level="90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-level" data-level="85%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="skill-title">Backend</h3>
+              <div class="skill-item">
+                <span class="skill-name">Node.js</span>
+                <div class="skill-bar">
+                  <div class="skill-level" data-level="80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-visual">
+          <div class="hexagon-wrapper">
+            <div class="hexagon">
+              <div class="hexagon-inner">
+                <div class="profile-img"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="floating-badges">
+            <div class="badge neon-border">Fast Service</div>
+            <div class="badge neon-border">Creative Solutions</div>
+            <div class="badge neon-border">Good Prices</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+      </div>
+      
+      <div class="projects-grid">
+  
+  <div class="project-card tilt-card" data-category="web">
+    <div class="project-card__content">
+      <div class="project-header">
+        <div class="project-links">
+          <a href="luxures.xyz" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="project-image">
+          <div class="image-glitch">
+            <img src="media/download.png" alt="luxures.xyz" class="project-img" />
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">luxures.xyz</h3>
+        <p class="project-description">A stunning web application for roblox shopping.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">HTML</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="project-card tilt-card" data-category="web">
+    <div class="project-card__content">
+      <div class="project-header">
+        <div class="project-links">
+          <a href="bettermusic.andrewdev.xyz" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="project-image">
+          <div class="image-glitch">
+            <img src="media/windsurf-logo.png" alt="Better Music" class="project-img" />
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Better Music</h3>
+        <p class="project-description">A site where you upload your music, while the site enhances the quality audio.</p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="project-card tilt-card" data-category="web">
+    <div class="project-card__content">
+      <div class="project-header">
+        <div class="project-links">
+          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="project-image">
+          <div class="image-glitch">
+            <img src="media/vscode-logo.png" alt="This Website" class="project-img" />
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">This Website</h3>
+        <p class="project-description">My portfolio website showcasing my work and skills.</p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="project-card tilt-card" data-category="other">
+    <div class="project-card__content">
+      <div class="project-header">
+        <div class="project-links">
+          <a href="anodes.andrewdev.xyz" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="project-image">
+          <div class="image-glitch">
+            <img src="media/yea.png" alt="ANodes" class="project-img" />
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">ANodes</h3>
+        <p class="project-description">24/7 Hosting services, this service is in BETA, contact me if you want a server. (Cheap prices)</p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">Pterodactyl</span>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="secret-section" style="display:none; opacity:0; transition:opacity 0.7s; position:relative; z-index:1000; background:linear-gradient(90deg,#ff2d75,#ff9900); color:#fff; padding:40px 0; text-align:center;">
+    <h2 style="font-size:2.5rem; margin-bottom:20px;">🎉 Secret Unlocked! 🎉</h2>
+    <p style="font-size:1.3rem;">You found the easter egg! Here’s a fun fact: Andrew codes with music and coffee ☕🎧.<br>Want a challenge? Try finding the <b>super secret project</b> hidden in the code!</p>
+  </section>
+
+  
+
+<section id="hacker-console" class="fun-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Hacker Console</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="console-window">
+      <div class="console-bar">
+        <span class="terminal-dot" style="background:#27c93f;"></span>
+        <span class="terminal-dot" style="background:#ffbd2e;"></span>
+        <span class="terminal-dot" style="background:#ff5f56;"></span>
+      </div>
+      <pre id="console-output" class="console-output">$ Click to hack the planet...</pre>
+      <button class="btn" id="console-btn">Run Hack</button>
+    </div>
+  </div>
+</section>
+
+
+<div id="footer-pixel" style="position:fixed;bottom:2px;right:12px;width:8px;height:8px;background:lime;z-index:2000;cursor:pointer;opacity:0.7;"></div>
+<div id="footer-secret" style="display:none;position:fixed;bottom:30px;right:20px;background:#222;padding:18px 28px;border-radius:10px;color:#fff;font-size:1.2rem;z-index:2001;box-shadow:0 2px 16px #000;">You found the secret pixel! 🎉<br>Keep exploring, hacker 😎</div>
+
+
+  <section id="tools" class="tools">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Development Tools</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="tools-grid">
+        <div class="tool-card digital-distortion">
+          <div class="tool-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="tool-title">Visual Studio Code</h3>
+          <p class="tool-description">Secondary editor for quick edits and specialized tasks, with powerful extensions and customization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card neon-border">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3 class="contact-title">Email</h3>
+            </div>
+            <div class="contact-details">
+              <p>N/A (Soon)</p>
+            </div>
+          </div>
+          
+          <div class="contact-card neon-border">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="contact-title">Website</h3>
+            </div>
+            <div class="contact-details">
+              <a href="https://andrewdev.xyz/" target="_blank">https://andrewdev.xyz/</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-container">
+          <div class="form-3d-container">
+            <form class="contact-form">
+              <div class="form-group">
+                <input type="text" id="name" class="form-input" placeholder=" " required>
+                <label for="name" class="form-label">Your Name</label>
+                <div class="form-line"></div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="email" class="form-input" placeholder=" " required>
+                <label for="email" class="form-label">Your Email</label>
+                <div class="form-line"></div>
+              </div>
+              
+              <div class="form-group">
+                <textarea id="message" class="form-input form-textarea" placeholder=" " required></textarea>
+                <label for="message" class="form-label">Your Message</label>
+                <div class="form-line"></div>
+              </div>
+              
+              <button type="submit" class="cyber-btn">
+                <span>Send Message</span>
+                <div class="cyber-btn__glitch"></div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <div class="logo-glitch" data-text="A">/A</div>
+            <div class="logo-title">ndrew</div>
+          </div>
+          <p class="footer-desc">Andrew, a passionate developer, good prices, fast service.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3 class="footer-title">Connect</h3>
+          <div class="social-links">
+            <a href="https://discord.com/users/andrew_dxz2" class="social-icon"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Andrew. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <button class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+  <script src="easteregg.js"></script>
+  <div id="music-player" class="music-player" style="position:fixed;bottom:24px;left:24px;">
+    <audio id="bg-music" src="believer.mp3" preload="auto"></audio>
+    <button id="music-play" title="Play"><i class="fas fa-play"></i></button>
+    <button id="music-pause" title="Pause"><i class="fas fa-pause"></i></button>
+    <button id="music-stop" title="Stop"><i class="fas fa-stop"></i></button>
+    
+    <span class="music-label">Smash Mouth - Believer</span>
+  </div>
+  <div id="party-lights"></div>>
+  <div id="party-warning-modal" style="display:none;position:fixed;z-index:3000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+    <div style="background:#111;color:#fff;padding:32px 32px 24px 32px;border-radius:16px;max-width:90vw;text-align:center;box-shadow:0 0 24px #ff00cc80;">
+      <h2 style="color:#ff00cc;margin-bottom:12px;font-size:2rem;">⚠️ Party Mode Warning</h2>
+      <p style="margin-bottom:18px;font-size:1.2rem;">Party Mode contains rapidly flashing lights and colors. <br><b>If you are sensitive to flashing lights, please do not enable Party Mode.</b></p>
+      <button id="party-continue-btn" style="background:#ff00cc;color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1.1rem;font-weight:bold;cursor:pointer;">I Understand, Continue</button>
+      <button id="party-cancel-btn" style="background:#222;color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1.1rem;font-weight:bold;margin-left:16px;cursor:pointer;">Cancel</button>
+    </div>
+  </div>
+  <script src="fun.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const robot = document.getElementById('robot-popup');
+      if(robot) {
+        robot.classList.add('show');
+        setTimeout(()=>{robot.classList.remove('show');}, 6000);
+      }
+    });
+    const music = document.getElementById('bg-music');
+    const playBtn = document.getElementById('music-play');
+    const pauseBtn = document.getElementById('music-pause');
+    const stopBtn = document.getElementById('music-stop');
+    window.addEventListener('DOMContentLoaded', () => {
+      music.volume = 0.33;
+      music.play().catch(()=>{});
+      const musicPlayer = document.getElementById('music-player');
+      const musicClose = document.getElementById('music-close');
+      if (musicClose && musicPlayer) {
+        musicClose.onclick = () => {
+          musicPlayer.classList.add('hide');
+          setTimeout(()=>{
+            musicPlayer.style.display = 'none';
+          }, 800);
+        };
+      }
+    });
+    playBtn.onclick = () => { music.play(); };
+    pauseBtn.onclick = () => { music.pause(); };
+    stopBtn.onclick = () => { music.pause(); music.currentTime = 0; };
+  </script>
+</body>
+</html>
+<!---Developed by andrew_Dxz2-->
